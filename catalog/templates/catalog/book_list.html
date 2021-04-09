@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+Все книги
+{% endblock %}
+
+{% block header %}
+Все книги
+{% endblock %}
+
+{% block main %}
+
+{% for book in books %}
+<div class="row mb-2" >
+        <div class="col-4">
+            <h5><a href="{{ book.url }}" class="text-success">
+               {{ book }}</a></h5>
+        </div>
+    <div class="col-4">
+            <h4><a href="{{ book.author.url }}"
+            class="text-primary">
+            {{ book.author }}</a></h4>
+    </div>
+    <div class="col-4">
+        {% for genre in book.genres.all %}
+            <a href="{{ genre.url }}"> {{ genre }}</a><br>
+        {% endfor %}
+    </div>
+<hr>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+{{ book }}
+{% endblock %}
+
+{% block header %}
+Книга: "{{ book }}"
+{% endblock %}
+
+{% block main %}
+<div class="row">
+<div class="col-4">
+<h3><a href="{{ book.author.url }}"> {{ book.author }}</a></h3>
+</div>
+<div class="col-4">
+{% for genre in book.genres.all %}
+    <h4><a href="{{ genre.url }}"> {{ genre }}</a></h4>
+{% endfor %}
+</div>
+    <div class="col-4">
+        {% if book.avialable_instances %}
+            <ol>
+            {% for bi in book.avialable_instances %}
+                <li>{{ bi.book }}</li>
+            {% endfor %}
+            </ol>
+        {% else %}
+        <p class="text=danger">нет доступных экземпляров книги</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

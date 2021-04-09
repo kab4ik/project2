@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+Каталог библиотеки
+{% endblock%}
+
+{% block header %}
+Главная страница каталога
+{% endblock%}
+
+{% block main %}
+<hr>
+<h2><a href="{% url 'catalog:genres' %}"
+       class="text-success" >
+    все жанры({{ n_genres }})
+</a></h2>
+<hr>
+<h2><a href="{% url 'catalog:authors' %}" class="text-success">
+    все авторы ({{ n_authors }})</a></h2>
+<hr>
+<h2><a href="{% url 'catalog:books' %}" class="text-success">
+    все книги ({{ n_books }})</a></h2>
+<hr>
+
+{% endblock%}
+
+
+

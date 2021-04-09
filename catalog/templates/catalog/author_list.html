@@ -1,0 +1,27 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+Все авторы
+{% endblock %}
+
+{% block header %}
+Все авторы
+{% endblock %}
+
+{% block main %}
+
+{% for author in authors %}
+<div class="row mb-2" >
+    <div class="col-1">
+<img src="{{ author.img }}" height="50" >
+        </div>
+    <div class="col-11">
+<h2><a href="{{ author.url }}"
+       class="text-success">
+    {{ author }}</a> (книг: {{ author.book_set.all  | length }})</h2>
+    </div>
+<hr>
+</div>
+{% endfor %}
+
+{% endblock %}

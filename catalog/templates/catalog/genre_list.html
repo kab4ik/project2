@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+Все жанры
+{% endblock %}
+
+{% block header %}
+Все жанры
+{% endblock %}
+
+{% block main %}
+
+{% for genre in genres %}
+
+<h2><a href="{{ genre.url }}"
+       class="text-success">
+    {{ genre }}</a></h2>
+<hr>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}
+{{ genre }}
+{% endblock %}
+
+{% block header %}
+Жанр: {{ genre }}
+{% endblock %}
+
+{% block main %}
+
+{% for book in genre.book_set.all %}
+
+<h2><a href="{{ book.url }}"
+       class="text-success">
+    {{ book }}</a>
+    <a href="{{ book.author.url }}">{{ book.author }}</a>
+</h2>
+<hr>
+
+{% endfor %}
+{% endblock %}
